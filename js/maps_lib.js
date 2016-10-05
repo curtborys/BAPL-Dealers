@@ -163,7 +163,7 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
-    var type_column = "'Company Name'";
+    var type_column = "'Main Line'";
     var searchType = type_column + " IN (-1,";
         if ( $("#cbType1").is(':checked')) searchType += "1,";
         if ( $("#cbType2").is(':checked')) searchType += "2,";
