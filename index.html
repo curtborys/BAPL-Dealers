@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class='navbar-brand' href='index.html'>AHW Dealer Map</a>
+          <a class='navbar-brand' href='index.html'>BAPL Dealer Map</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -36,7 +36,7 @@
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-4'>
-          <p>This is a map of all Arends Hogan Walker dealer locations, along with potential conflicting dealer locations</p>
+          <p>This is a map of all current BAPL dealer locations.</p>
           <div class='well'>
             <h4>
               Address <small>(<a id='find_me' href='#'>find me</a>)</small>
@@ -48,51 +48,51 @@
               <label>
                 within
                 <select id='search_radius'>
-                  <option value='400'>2 blocks</option>
-                  <option value='805'>1/2 mile</option>
                   <option value='1610'>1 mile</option>
-                  <option value='3220'>2 miles</option>
+                  <option value='16095'>10 miles</option>
+                  <option value='40235'>25 miles</option>
+                  <option value='80470'>50 miles</option>
                 </select>
               </label>
             </p>
 
             <h4>
-  Dealerships
+  Dealer Main Lines
 </h4>
 <ul class='inputs-list unstyled'>
   <li>
     <label class='checkbox inline'>
       <input type='checkbox' id='cbType1' />
       <span class='filter-box filter-green'></span>
-      Arends Hogan Walker
+      John Deere
     </label>
   </li>
   <li>
     <label class='checkbox inline'>
       <input type='checkbox' id='cbType2' />
       <span class='filter-box filter-yellow'></span>
-      Birkey's Farm Store
-    </label>
-  </li>
-  <li>
-    <label class='checkbox inline'>
-      <input type='checkbox' id='cbType3' />
-      <span class='filter-box filter-purple'></span>
-      Jennings Implement
+      AGCO
     </label>
   </li>
    <li>
     <label class='checkbox inline'>
       <input type='checkbox' id='cbType4' />
       <span class='filter-box filter-blue'></span>
-      Lambert Equipment
+      LNew Holland
     </label>
   </li>
     <li>
     <label class='checkbox inline'>
       <input type='checkbox' id='cbType5' />
       <span class='filter-box filter-red'></span>
-      Union Hill Sales and Service
+      CASE
+    </label>
+  </li>
+    <li>
+    <label class='checkbox inline'>
+      <input type='checkbox' id='cbType3' />
+      <span class='filter-box filter-purple'></span>
+      Other
     </label>
   </li>
 </ul>
@@ -116,7 +116,7 @@
           </noscript>
           <div id='map_canvas'></div>
           <p class='pull-right'>
-           Competing Dealer Locations Map
+          BAPL Dealers
         </p>
         </div>
       </div>
@@ -125,7 +125,7 @@
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.address.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCSg3bQurfz0U61uKn_8CYgPHzcl_Y2JE8"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=places&key=AIzaSyCA7a7D3tJvGQ_kIjyA294CqNy_9fWUor4"></script>
     <script type="text/javascript" src="js/maps_lib.js"></script>
     <script type='text/javascript'>
       //<![CDATA[
@@ -138,10 +138,10 @@
         
         $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1nC9PTtoejKnxqWiXPkSH53cJ47uGbWge151T5gce",
-            googleApiKey:       "AIzaSyACRAxRGeYCa4JjcOzx0nd8gKfJs-XTQZI",
+            fusionTableId:      "18CdPtP1LGS8MrhDhoNYFRi_XwNMG2yoxJJPC39xc",
+            googleApiKey:       "AIzaSyCA7a7D3tJvGQ_kIjyA294CqNy_9fWUor4",
             locationColumn:     "latitude",
-            map_center:         [40.584457, -88.208923],
+            map_center:         [47.441092, -99.711914],
             locationScope:      "United States"
           });
 
