@@ -163,13 +163,13 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
-    var type_column = "'Main Line'";
+    var type_column = "Marker";
     var searchType = type_column + " IN (-1,";
-        if ( $("#cbType1").is(':checked')) searchType += "1,";
-        if ( $("#cbType2").is(':checked')) searchType += "2,";
-        if ( $("#cbType3").is(':checked')) searchType += "3,";
-        if ( $("#cbType3").is(':checked')) searchType += "4,";
-        if ( $("#cbType3").is(':checked')) searchType += "5,";
+        if ( $("#cbType1").is(':checked')) searchType += "grn_circle,";
+        if ( $("#cbType2").is(':checked')) searchType += "ylw_circle,";
+        if ( $("#cbType3").is(':checked')) searchType += "blu_circle,";
+        if ( $("#cbType3").is(':checked')) searchType += "red_circle,";
+        if ( $("#cbType3").is(':checked')) searchType += "purple_circle,";
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
         //-----end of custom filters-----
 
