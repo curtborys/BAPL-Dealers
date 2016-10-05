@@ -24,7 +24,7 @@
         this.locationScope = options.locationScope || "";
 
         // zoom level when map is loaded (bigger is more zoomed in)
-        this.defaultZoom = options.defaultZoom || 11; 
+        this.defaultZoom = options.defaultZoom || 8; 
 
         // center that your map defaults to
         this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
@@ -163,6 +163,14 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
+    var type_column = "'Company Name'";
+    var searchType = type_column + " IN (-1,";
+        if ( $("#cbType1").is(':checked')) searchType += "1,";
+        if ( $("#cbType2").is(':checked')) searchType += "2,";
+        if ( $("#cbType3").is(':checked')) searchType += "3,";
+        if ( $("#cbType3").is(':checked')) searchType += "4,";
+        if ( $("#cbType3").is(':checked')) searchType += "5,";
+    self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
