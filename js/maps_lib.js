@@ -127,22 +127,7 @@
         self.getCount(whereClause);
     };
 
-    // Polygon layer functionality control???
-    if ($("#rbPolygon1").is(':checked')) {
-      self.polygon1.setMap(self.map);
-    } else if ($("#rbPolygon2").is(':checked')) {
-      self.polygon2.setMap(self.map);
-    } else if ($("#rbPolygonOFF").is(':checked')) {
-      self.polygon1.setMap(self.map),
-        self.polygon2.setMap(self.map);
-    }
 
-    // TURN OFF POLYGONS
-    if (self.polygon1 !== null)
-      self.polygon1.setMap(null);
-    if (self.polygon2 !== null)
-      self.polygon2.setMap(null);
-    };
 
     MapsLib.prototype.getgeoCondition = function (address, callback) {
         var self = this;
