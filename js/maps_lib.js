@@ -91,8 +91,8 @@
         from: self.polygon3FTID,
         select: "Latitude"
         },
-        styleId: 4,
-        templateId: 6
+        styleId: 2,
+        templateId: 2
         });     
 	    
         //reset filters
