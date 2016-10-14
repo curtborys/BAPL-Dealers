@@ -11,8 +11,8 @@
         // the encrypted Table ID of your Fusion Table (found under File => About)
         this.fusionTableId = options.fusionTableId || "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
             
-        this.polygon1TableID = options.fusionTableId || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries
-        this.polygon2TableID = options.fusionTableId || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries            
+        this.polygon1FTID = options.polygonFTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries
+        this.polygon2FTID = options.polygonFTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries            
 
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
@@ -33,19 +33,21 @@
         this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
         
         // MODIFY if needed: defines background polygon1 and polygon2 layers
-        this.polygon1 = new google.maps.FusionTablesLayer({
+	    self.polygon1 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: true,
         query: {
-        from:   this.polygon1TableID,
-        select: "Boundary"
+        from: self.polygon1FTID,
+        select: self.polygonlocation
         },
         styleId: 2,
         templateId: 2
         });
 
-        this.polygon2 = new google.maps.FusionTablesLayer({
+	    self.polygon2 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: true,
         query: {
-        from:   this.polygon2TableID,
-        select: "Boundary"
+        from: self.polygon2FTID,
+        select: self.polygonlocation
         },
         styleId: 3,
         templateId: 6
@@ -125,6 +127,22 @@
         self.getCount(whereClause);
     };
 
+    // Polygon layer functionality control???
+    if ($("#rbPolygon1").is(':checked')) {
+      self.polygon1.setMap(self.map);
+    } else if ($("#rbPolygon2").is(':checked')) {
+      self.polygon2.setMap(self.map);
+    } else if ($("#rbPolygonOFF").is(':checked')) {
+      self.polygon1.setMap(self.map),
+        self.polygon2.setMap(self.map);
+    }
+
+    // TURN OFF POLYGONS
+    if (self.polygon1 !== null)
+      self.polygon1.setMap(null);
+    if (self.polygon2 !== null)
+      self.polygon2.setMap(null);
+    };
 
     MapsLib.prototype.getgeoCondition = function (address, callback) {
         var self = this;
