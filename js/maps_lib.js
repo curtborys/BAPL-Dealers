@@ -10,10 +10,11 @@
 
         // the encrypted Table ID of your Fusion Table (found under File => About)
         this.fusionTableId = options.fusionTableId || "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
-            
-        this.polygon1FTID = options.polygonFTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries
-        this.polygon2FTID = options.polygonFTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries            
 
+	// EDIT to add more if you have additional polygon layers
+    	this.polygon1FTID = options.polygon1TableId || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
+        this.polygon2FTID = options.polygon2TableId || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
+          
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
         this.googleApiKey = options.googleApiKey || "AIzaSyD8JmBwSHPBhx6T2eD22SPube_68ndGIBY",
@@ -30,28 +31,7 @@
         this.defaultZoom = options.defaultZoom || 5; 
 
         // center that your map defaults to
-        this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
-        
-        // MODIFY if needed: defines background polygon1 and polygon2 layers
-	    self.polygon1 = new google.maps.FusionTablesLayer({
-        suppressInfoWindows: true,
-        query: {
-        from: self.polygon1FTID,
-        select: self.polygonlocation
-        },
-        styleId: 2,
-        templateId: 2
-        });
-
-	    self.polygon2 = new google.maps.FusionTablesLayer({
-        suppressInfoWindows: true,
-        query: {
-        from: self.polygon2FTID,
-        select: self.polygonlocation
-        },
-        styleId: 3,
-        templateId: 6
-        });        
+        this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);  
         
         // marker image for your searched address
         if (typeof options.addrMarkerImage !== 'undefined') {
@@ -83,6 +63,27 @@
         });
         self.searchrecords = null;
 
+	// MODIFY if needed: defines background polygon1 and polygon2 layers
+	self.polygon1 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: true,
+        query: {
+        from: self.polygon1FTID,
+        select: self.polygonlocation
+        },
+        styleId: 2,
+        templateId: 2
+        });
+
+	self.polygon2 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: true,
+        query: {
+        from: self.polygon2FTID,
+        select: self.polygonlocation
+        },
+        styleId: 3,
+        templateId: 6
+        });       
+	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
         var loadRadius = self.convertToPlainString($.address.parameter('radius'));
@@ -126,8 +127,6 @@
         self.searchrecords.setMap(map);
         self.getCount(whereClause);
     };
-
-
 
     MapsLib.prototype.getgeoCondition = function (address, callback) {
         var self = this;
@@ -379,11 +378,16 @@
         if (text === undefined) return '';
         return decodeURIComponent(text);
     };
-
+	
+	// EDIT if adding more than polygon1
     MapsLib.prototype.clearSearch = function () {
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
             self.searchrecords.setMap(null);
+		if (self.polygon1 != null)
+    	self.polygon1.setMap(null);
+		if (self.polygon2 != null)
+    	self.polygon2.setMap(null);		
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
