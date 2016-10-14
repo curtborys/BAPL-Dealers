@@ -385,9 +385,9 @@
         if (self.searchrecords && self.searchrecords.getMap) 
         self.searchrecords.setMap(null);
 	if ($("#rbPolygon1").is(':checked'))
-    	self.polygon1.setMap(map);
+    	self.polygon1.setMap(null);
 	if ($("#rbPolygon2").is(':checked'))
-    	self.polygon2.setMap(map);	
+    	self.polygon2.setMap(null);	
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
 	if ($("#rbPolygonOff").is(':checked'));    
