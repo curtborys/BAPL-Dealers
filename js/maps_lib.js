@@ -33,18 +33,18 @@
         this.map_centroid = new google.maps.LatLng(options.map_center[0], options.map_center[1]);
         
         // MODIFY if needed: defines background polygon1 and polygon2 layers
-        this.MapsLib.polygon1 = new google.maps.FusionTablesLayer({
+        this.polygon1 = new google.maps.FusionTablesLayer({
         query: {
-        from:   MapsLib.polygon1TableID,
+        from:   this.polygon1TableID,
         select: "Boundary"
         },
         styleId: 2,
         templateId: 2
         });
 
-        this.MapsLib.polygon2 = new google.maps.FusionTablesLayer({
+        this.polygon2 = new google.maps.FusionTablesLayer({
         query: {
-        from:   MapsLib.polygon2TableID,
+        from:   this.polygon2TableID,
         select: "Boundary"
         },
         styleId: 3,
