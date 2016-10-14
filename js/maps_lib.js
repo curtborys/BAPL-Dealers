@@ -386,8 +386,10 @@
            self.searchrecords.setMap(null);
 	if ($("#rbPolygon1").is(':checked'))
     	   self.polygon1.setMap(self.map);
+	   self.polygon2.setMap(null); 
     	else if ($("#rbPolygon2").is(':checked'))
       	   self.polygon2.setMap(self.map);
+	   self.polygon1.setMap(null); 
     	else if ($("#rbPolygonOff").is(':checked'))
       	   self.polygon1.setMap(null),
        	   self.polygon2.setMap(null);
