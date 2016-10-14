@@ -86,13 +86,13 @@
         }); 
 	  
 	self.polygon3 = new google.maps.FusionTablesLayer({
-        suppressInfoWindows: true,
+        suppressInfoWindows: false,
         query: {
         from: self.polygon3FTID,
         select: "Latitude"
         },
-        styleId: 2,
-        templateId: 2
+        styleId: 4,
+        templateId: 6
         });     
 	    
         //reset filters
