@@ -74,7 +74,7 @@
         $("#result_box").hide();
 
         // MODIFY if needed: defines background polygon1 and polygon2 layers
-        MapsLib.polygon1 = new google.maps.FusionTablesLayer({
+        this.MapsLib.polygon1 = new google.maps.FusionTablesLayer({
         query: {
         from:   MapsLib.polygon1TableID,
         select: "Boundary"
@@ -83,7 +83,7 @@
         templateId: 2
         });
 
-        MapsLib.polygon2 = new google.maps.FusionTablesLayer({
+        this.MapsLib.polygon2 = new google.maps.FusionTablesLayer({
         query: {
         from:   MapsLib.polygon2TableID,
         select: "Boundary"
