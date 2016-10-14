@@ -14,6 +14,7 @@
 	// EDIT to add more if you have additional polygon layers
     	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
         this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
+	this.polygon3FTID = options.polygon3FTID || "", //US Expansion
           
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
@@ -82,7 +83,17 @@
         },
         styleId: 3,
         templateId: 6
-        });       
+        }); 
+	  
+	self.polygon3 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: true,
+        query: {
+        from: self.polygon2FTID,
+        select: "Latitude"
+        },
+        styleId: 2,
+        templateId: 2
+        });     
 	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
@@ -98,6 +109,7 @@
         
         //-----custom initializers-----
         $("#rbPolygonOff").attr("checked", "checked");
+	$("#rbPolygon1Off").attr("checked", "checked");    
         //-----end of custom initializers-----
 
         //run the default search when page loads
@@ -393,6 +405,10 @@
     	else if ($("#rbPolygonOff").is(':checked'))
       	   self.polygon1.setMap(null),
        	   self.polygon2.setMap(null);
+	if ($("#rbPolygon3").is(':checked'))
+    	   self.polygon3.setMap(self.map);
+	else if ($("#rbPolygon1Off").is(':checked'))
+       	   self.polygon3.setMap(null);    
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
