@@ -12,8 +12,8 @@
         this.fusionTableId = options.fusionTableId || "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
 
 	// EDIT to add more if you have additional polygon layers
-    	this.polygon1FTID = options.polygon1TableId || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
-        this.polygon2FTID = options.polygon2TableId || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
+    	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
+        this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
           
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
@@ -68,7 +68,7 @@
         suppressInfoWindows: true,
         query: {
         from: self.polygon1FTID,
-        select: self.polygonlocation
+        select: "Boundary"
         },
         styleId: 2,
         templateId: 2
@@ -78,7 +78,7 @@
         suppressInfoWindows: true,
         query: {
         from: self.polygon2FTID,
-        select: self.polygonlocation
+        select: "Boundary"
         },
         styleId: 3,
         templateId: 6
