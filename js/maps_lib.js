@@ -9,16 +9,19 @@
         this.searchRadius = options.searchRadius || 805; //in meters ~ 1/2 mile
 
         // the encrypted Table ID of your Fusion Table (found under File => About)
-        this.fusionTableId = options.fusionTableId || "",
+        this.fusionTableId = options.fusionTableId || "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
+            
+        this.polygon1TableID = options.fusionTableId || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries
+        this.polygon2TableID = options.fusionTableId || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries            
 
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
-        this.googleApiKey = options.googleApiKey || "",
+        this.googleApiKey = options.googleApiKey || "AIzaSyD8JmBwSHPBhx6T2eD22SPube_68ndGIBY",
         
         // name of the location column in your Fusion Table.
         // NOTE: if your location column name has spaces in it, surround it with single quotes
         // example: locationColumn:     "'my location'",
-        this.locationColumn = options.locationColumn || "geometry";
+        this.locationColumn = options.locationColumn || "Latitude";
         
         // appends to all address searches if not present
         this.locationScope = options.locationScope || "";
@@ -70,7 +73,27 @@
         $(":checkbox").prop("checked", "checked");
         $("#result_box").hide();
 
+        // MODIFY if needed: defines background polygon1 and polygon2 layers
+        MapsLib.polygon1 = new google.maps.FusionTablesLayer({
+        query: {
+        from:   MapsLib.polygon1TableID,
+        select: "Boundary"
+        },
+        styleId: 2,
+        templateId: 2
+        });
+
+        MapsLib.polygon2 = new google.maps.FusionTablesLayer({
+        query: {
+        from:   MapsLib.polygon2TableID,
+        select: "Boundary"
+        },
+        styleId: 3,
+        templateId: 6
+        });
+        
         //-----custom initializers-----
+        $("#rbPolygonOff").attr("checked", "checked");
         //-----end of custom initializers-----
 
         //run the default search when page loads
@@ -163,14 +186,36 @@
         self.whereClause = self.locationColumn + " not equal to ''";
         
         //-----custom filters-----
-    var type_column = "Marker";
+    var type_column = "'SearchType2'";
     var searchType = type_column + " IN (-1,";
-        if ( $("#cbType1").is(':checked')) searchType += "grn_circle,";
-        if ( $("#cbType2").is(':checked')) searchType += "ylw_circle,";
-        if ( $("#cbType3").is(':checked')) searchType += "blu_circle,";
-        if ( $("#cbType3").is(':checked')) searchType += "red_circle,";
-        if ( $("#cbType3").is(':checked')) searchType += "purple_circle,";
+    if ( $("#cbType1").is(':checked')) searchType += "1,";
+    if ( $("#cbType2").is(':checked')) searchType += "2,";
+    if ( $("#cbType3").is(':checked')) searchType += "3,";
+    if ( $("#cbType4").is(':checked')) searchType += "4,";
+    if ( $("#cbType5").is(':checked')) searchType += "5,";
+    if ( $("#cbType6").is(':checked')) searchType += "6,";
+    if ( $("#cbType7").is(':checked')) searchType += "7,";
+    if ( $("#cbType8").is(':checked')) searchType += "8,";
+    if ( $("#cbType9").is(':checked')) searchType += "9,";
+    if ( $("#cbType10").is(':checked')) searchType += "10,";
+    if ( $("#cbType11").is(':checked')) searchType += "11,";
+    if ( $("#cbType12").is(':checked')) searchType += "12,";
+    if ( $("#cbType13").is(':checked')) searchType += "13,";
+    if ( $("#cbType14").is(':checked')) searchType += "14,";
+    if ( $("#cbType15").is(':checked')) searchType += "15,";
+    if ( $("#cbType16").is(':checked')) searchType += "16,";
+    if ( $("#cbType17").is(':checked')) searchType += "17,";
+    if ( $("#cbType18").is(':checked')) searchType += "18,";
+    if ( $("#cbType19").is(':checked')) searchType += "19,";
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
+    
+    var type_column = "'SearchType3'";
+    var searchType = type_column + " IN (-1,";
+    if ( $("#cbType20").is(':checked')) searchType += "1,";
+    if ( $("#cbType21").is(':checked')) searchType += "2,";
+    if ( $("#cbType22").is(':checked')) searchType += "3,";
+    self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";    
+        
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
