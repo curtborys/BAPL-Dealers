@@ -383,14 +383,16 @@
     MapsLib.prototype.clearSearch = function () {
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
-        self.searchrecords.setMap(null);
+           self.searchrecords.setMap(null);
 	if ($("#rbPolygon1").is(':checked'))
-    	self.polygon1.setMap(null);
-	if ($("#rbPolygon2").is(':checked'))
-    	self.polygon2.setMap(null);	
+    	   self.polygon1.setMap(self.map);
+    	else if ($("#rbPolygon2").is(':checked'))
+      	   self.polygon2.setMap(self.map);
+    	else if ($("#rbPolygonOff").is(':checked'))
+      	   self.polygon1.setMap(self.map),
+       	   self.polygon2.setMap(self.map);
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
-	if ($("#rbPolygonOff").is(':checked'));    
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
             self.searchRadiusCircle.setMap(null);
     };
