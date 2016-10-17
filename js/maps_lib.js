@@ -50,7 +50,7 @@
         this.myOptions = {
             zoom: this.defaultZoom,
             center: this.map_centroid,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.terrain
         };
         this.geocoder = new google.maps.Geocoder();
         this.map = new google.maps.Map($("#map_canvas")[0], this.myOptions);
