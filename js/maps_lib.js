@@ -9,7 +9,7 @@
         this.searchRadius = options.searchRadius || 805; //in meters ~ 1/2 mile
 
         // the encrypted Table ID of your Fusion Table (found under File => About)
-        this.fusionTableId = options.fusionTableId || "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
+        this.fusionTableId = options.fusionTableId || "",
 
 	// EDIT to add more if you have additional polygon layers
     	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
@@ -18,7 +18,7 @@
           
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
-        this.googleApiKey = options.googleApiKey || "AIzaSyCA7a7D3tJvGQ_kIjyA294CqNy_9fWUor4",
+        this.googleApiKey = options.googleApiKey || "",
         
         // name of the location column in your Fusion Table.
         // NOTE: if your location column name has spaces in it, surround it with single quotes
