@@ -224,7 +224,11 @@
     if ( $("#cbType19").is(':checked')) searchType += "19,";
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
     
-        
+    var type_column = "'SearchType3'";
+    var searchType = type_column + " IN (-1,";
+    if ( $("#cbType20").is(':checked')) searchType += "1,";
+    if ( $("#cbType21").is(':checked')) searchType += "2,";
+    self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";        
         //-----end of custom filters-----
 
         self.getgeoCondition(address, function (geoCondition) {
