@@ -81,8 +81,8 @@
         from: self.polygon2FTID,
         select: "Boundary"
         },
-        styleId: 3,
-        templateId: 6
+        styleId: 7,
+        templateId: 9
         }); 
 	  
 	self.polygon3 = new google.maps.FusionTablesLayer({
