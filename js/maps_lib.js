@@ -222,6 +222,7 @@
     if ( $("#cbType17").is(':checked')) searchType += "17,";
     if ( $("#cbType18").is(':checked')) searchType += "18,";
     if ( $("#cbType19").is(':checked')) searchType += "19,";
+    if ( $("#cbType20").is(':checked')) searchType += "20,";	    
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
     
     var type_column = "'SearchType3'";
