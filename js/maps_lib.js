@@ -100,7 +100,7 @@
         suppressInfoWindows: false,
         query: {
         from: self.polygon4TFD,
-        select: "Coordinates
+        select: "Coordinates"
         },
         styleId: 2
         templateId: 2
