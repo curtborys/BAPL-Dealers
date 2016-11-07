@@ -99,11 +99,11 @@
 	self.polygon4 = new google.maps.FusionTablesLayer({
         suppressInfoWindows: false,
         query: {
-        from: self.polygon4TFD,
+        from: self.polygon4FTID,
         select: "Coordinates"
         },
-        styleId: 2
-        templateId: 2
+        styleId: 4,
+        templateId: 6
         });     	    
 	    
         //reset filters
