@@ -14,8 +14,7 @@
 	// EDIT to add more if you have additional polygon layers
     	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
         this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
-	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //US Expansion
-	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Competitors      
+	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //US Expansion     
 		
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
@@ -95,16 +94,7 @@
         styleId: 4,
         templateId: 6
         });     
-
-	self.polygon4 = new google.maps.FusionTablesLayer({
-        suppressInfoWindows: false,
-        query: {
-        from: self.polygon4FTID,
-        select: "Coordinates"
-        },
-        styleId: 4,
-        templateId: 6
-        });     	    
+   	    
 	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
