@@ -95,7 +95,16 @@
         styleId: 4,
         templateId: 6
         });     
-   	    
+
+	self.polygon4 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: false,
+        query: {
+        from: self.polygon4FTID,
+        select: "Coordinates"
+        },
+        styleId: 4,
+        templateId: 6
+        });  	    
 	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
