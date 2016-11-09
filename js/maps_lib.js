@@ -405,14 +405,7 @@
     MapsLib.prototype.clearSearch = function () {
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
-           self.searchrecords.setMap(null);
-	if ($("#cbPolygon1").is(':checked'))
-    	   self.polygon1.setMap(self.map),
-		   
-    	if ($("#cbPolygon2").is(':checked'))
-      	   self.polygon2.setMap(self.map),
-	else if (!$("#cbPolygon2").is(':checked'))
-       	   self.polygon2.setMap(null);			   
+           self.searchrecords.setMap(null);   
 	if ($("#rbPolygon3").is(':checked'))
     	   self.polygon3.setMap(self.map);
 	else if ($("#rbPolygon1Off").is(':checked'))
