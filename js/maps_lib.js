@@ -241,6 +241,8 @@
     var type_column = "'SearchType3'";
     var searchType = type_column + " IN (-1,";
     if ( $("#cbType100").is(':checked')) searchType += "1,"; 
+    else if ($("#cbType100").is(':checked'))
+	$(":checkbox[name='canada[]']").attr("checked", true);
     else if (!$("#cbType100").is(':checked'))
 	$(":checkbox[name='canada[]']").attr("checked", false);
     if ( $("#cbType101").is(':checked')) searchType += "2,";
