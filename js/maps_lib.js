@@ -119,7 +119,8 @@
 
         
         //-----custom initializers-----
-        $("#rbPolygonOff").attr("checked", "checked");
+	$("#cbPolygon1").attr("checked", false);
+	$("#cbPolygon2").attr("checked", false);	    
 	$("#rbPolygon1Off").attr("checked", "checked");
 	$("#cbPolygon4").attr("checked", false);	    
         //-----end of custom initializers-----
@@ -407,15 +408,14 @@
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
-	if ($("#rbPolygon1").is(':checked'))
+	if ($("#cbPolygon1").is(':checked'))
     	   self.polygon1.setMap(self.map),
-	   self.polygon2.setMap(null); 
-    	else if ($("#rbPolygon2").is(':checked'))
+	else if (!$("#cbPolygon1").is(':checked'))
+       	   self.polygon4.setMap(null);			   
+    	if ($("#cbPolygon2").is(':checked'))
       	   self.polygon2.setMap(self.map),
-	   self.polygon1.setMap(null); 
-    	else if ($("#rbPolygonOff").is(':checked'))
-      	   self.polygon1.setMap(null),
-       	   self.polygon2.setMap(null);
+	else if (!$("#cbPolygon2").is(':checked'))
+       	   self.polygon4.setMap(null);			   
 	if ($("#rbPolygon3").is(':checked'))
     	   self.polygon3.setMap(self.map);
 	else if ($("#rbPolygon1Off").is(':checked'))
