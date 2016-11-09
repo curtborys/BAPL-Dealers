@@ -102,8 +102,8 @@
         from: self.polygon4FTID,
         select: "Coordinates"
         },
-        styleId: 4,
-        templateId: 6
+        styleId: 2,
+        templateId: 2
         });  	    
 	    
         //reset filters
