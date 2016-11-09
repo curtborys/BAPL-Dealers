@@ -118,9 +118,7 @@
         $("#result_box").hide();
 
         
-        //-----custom initializers-----
-	$("#cbPolygon1").attr("checked", false);
-	$("#cbPolygon2").attr("checked", false);	    
+        //-----custom initializers-----    
 	$("#rbPolygon1Off").attr("checked", "checked");
 	$("#cbPolygon4").attr("checked", false);	    
         //-----end of custom initializers-----
