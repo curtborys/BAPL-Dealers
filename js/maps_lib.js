@@ -409,7 +409,7 @@
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
 	if ($("#cbPolygon1").is(':checked'))
-	   self.polygon1.setMap(self.map),
+	   self.polygon1.setMap(self.map);
 	else if (!$("#cbPolygon1").is(':checked'))
        	   self.polygon1.setMap(null);	    
 	if ($("#rbPolygon3").is(':checked'))
