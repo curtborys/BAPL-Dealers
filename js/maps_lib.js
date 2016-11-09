@@ -243,8 +243,8 @@
     if ( $("#cbType100").is(':checked')) searchType += "1,";
 	//----- INSERT else if simialar to http://jsfiddle.net/j08691/pzCcE/2/ to uncheck other filters-----  
 	else if (!$("#cbType100").is(':checked'))
-		$("#canada[] input[type=checkbox]").each(function () {
-                $(name).prop("checked", false);
+		$("#US input[type=checkbox]").each(function () {
+                $(self).prop("checked", false);
             });
     if ( $("#cbType101").is(':checked')) searchType += "2,";
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";        
