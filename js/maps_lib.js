@@ -243,7 +243,7 @@
     if ( $("#cbType100").is(':checked')) searchType += "1,";
 	//----- INSERT else if simialar to http://jsfiddle.net/j08691/pzCcE/2/ to uncheck other filters-----  
 	else if (!$("#cbType100").is(':checked'))
-		$(":checkbox[name='"Canada[]"').prop("checked", false);
+		$(":checkbox[name='Canada[]').prop("checked", false);
     if ( $("#cbType101").is(':checked')) searchType += "2,";
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";        
         //-----end of custom filters-----
