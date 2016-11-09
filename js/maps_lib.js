@@ -420,7 +420,9 @@
 	else if ($("#rbPolygon1Off").is(':checked'))
        	   self.polygon3.setMap(null);
 	if ($("#cbPolygon4").is(':checked'))
-    	   self.polygon4.setMap(self.map);	    
+    	   self.polygon4.setMap(self.map);
+	else if (!$("#cbPolygon4").is(':checked'))
+       	   self.polygon4.setMap(null);	    
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
