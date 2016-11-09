@@ -242,7 +242,7 @@
     var searchType = type_column + " IN (-1,";
     if ( $("#cbType100").is(':checked')) searchType += "1,"; 
     if ( $(":checkbox[name='canada[]']").prop("checked", true)
-    else { (!$("#cbType100").is(':checked'))
+    if (!$("#cbType100").is(':checked'))
 	$(":checkbox[name='canada[]']").prop("checked", false);
     if ( $("#cbType101").is(':checked')) searchType += "2,";
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";        
