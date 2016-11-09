@@ -120,7 +120,8 @@
         
         //-----custom initializers-----
         $("#rbPolygonOff").attr("checked", "checked");
-	$("#rbPolygon1Off").attr("checked", "checked"); 	    
+	$("#rbPolygon1Off").attr("checked", "checked");
+	$("#cbPolygon4").attr("checked", false);	    
         //-----end of custom initializers-----
 
         //run the default search when page loads
