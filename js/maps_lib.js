@@ -105,7 +105,17 @@
         },
         styleId: 2,
         templateId: 2
-        });  	    
+        }); 
+	    
+	self.polygon5 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: false,
+        query: {
+        from: self.polygon5FTID,
+        select: "Coordinates"
+        },
+        styleId: 2,
+        templateId: 2
+        }); 	    
 	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
@@ -123,7 +133,8 @@
 	$("#cbPolygon1").attr("checked", false);
 	$("#cbPolygon2").attr("checked", false);	
 	$("#rbPolygon1Off").attr("checked", "checked");
-	$("#cbPolygon4").attr("checked", false);	    
+	$("#cbPolygon4").attr("checked", false);
+	$("#cbPolygon5").attr("checked", false);	    
         //-----end of custom initializers-----
 
         //run the default search when page loads
