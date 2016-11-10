@@ -65,7 +65,7 @@
 				<div class="divTableCell">US</div>
 				<div class="divTableCell">Canada</div>
 			</div>
-	    	<div class="divTableRow">
+	    	<div id="US" class="divTableRow">
 				<div class="divTableCell">
       			<ul class='inputs-list unstyled'>
             	  <li>
@@ -80,6 +80,12 @@
            		     James Hendrix
             		 </label>
             	  </li>
+             	  <li>
+             		 <label class='checkbox inline'>
+            	     <input type='checkbox' name='us[]' id='cbType20' />
+           		     Alan Larson
+            		 </label>
+            	  </li>				
              	  <li>
               		<label class='checkbox inline'>
                 	<input type='checkbox' name='us[]' id='cbType8' />
@@ -110,6 +116,12 @@
                 	Alan Schneider
               		</label>
             	  </li>
+           	  <li>
+              		<label class='checkbox inline'>
+                	<input type='checkbox' name='us[]' id='cbType17' />
+               		Clint Stocklin
+              		</label>
+            	  </li>				
              	  <li>
               		<label class='checkbox inline'>
                		<input type='checkbox' name='us[]' id='cbType14' />
@@ -128,12 +140,6 @@
                 	Joe Wetzel
               	  	</label>
             	  </li>
-           	 	  <li>
-              		<label class='checkbox inline'>
-                	<input type='checkbox' name='us[]' id='cbType17' />
-               		Clint Stocklin
-              		</label>
-            	  </li>
                   <li>
               		<label class='checkbox inline'>
                 	<input type='checkbox' name='us[]' id='cbType18' />
@@ -148,13 +154,13 @@
             	  </li>
             	  <li>
               		<label class='checkbox inline'>
-                	<input type='checkbox' id='cbType21' />
+                	<input type='checkbox' id='cbType101' />
                 	All US
               		</label>
             	  </li>      
           	</ul>
   		</div>
-			<div class="divTableCell">
+			<div id="Canada" class="divTableCell">
 				<ul class='inputs-list unstyled'>
 					<li>
 					  <label class='checkbox inline'>
@@ -188,32 +194,47 @@
 					</li>
 					<li>
 					  <label class='checkbox inline'>
-						<input type='checkbox' id='cbType20' />
+						<input type='checkbox' id='cbType100' />
 						All Canada
 					  </label>
 					</li>
-  				</ul>
-  				</div>
+  				</ul>					
+					<p>Competition</p>
+					<ul class='inputs-list unstyled'>
+					<li>
+					  <label class='checkbox inline'>
+						<input type='checkbox' name='comps[]' id='cbPolygon4' />
+					   Canadian Competitors
+					  </label>
+					</li>
+					<li>
+					  <label class='checkbox inline'>
+						<input type='checkbox' name='comps[]' id='cbPolygon5' />
+					   US Competitors
+					  </label>
+					</li>						
+					</ul>		
+
+  			</div>
 			</div>
 		</div>
 	</div>
           <!--MODIFY Polygon layers legend heading, labels (such as Polygon layer 1) to match your data, and related items in maps_lib.js file -->
 	<div class="divTable" style="width: 100%;">
-		<div class="divTableBody">
+	  <div class="divTableBody">
 			<div class="divTableRow">
 			<div class="divTableCell">Territories</div>
 			<div class="divTableCell">US Expansion</div>
-		</div>
-			<div class="divTableRow">
+			</div>
+		<div class="divTableRow">
 			<div class="divTableCell">
-			<div class="clear">
-			<ul class="inputs-list unstyled">
-				<li><label class="radio inline"> <input id="rbPolygon1" name="types" type="radio" /> Canadian Territories </label></li>
-				<li><label class="radio inline"> <input id="rbPolygon2" name="types" type="radio" /> US Territories </label></li>
-				<li><label class="radio inline"> <input id="rbPolygonOff" checked="checked" name="types" type="radio" /><!--MODIFY to remove default checked button--> Off </label></li>
-			</ul>
-		</div>
-	</div>
+			 <div class="clear">
+			  <ul class="inputs-list unstyled">
+				<li><label class='checkbox inline'> <input id="cbPolygon1" name='comps[]' type="checkbox" /> Canadian Territories </label></li>
+				<li><label class='checkbox inline'> <input id="cbPolygon2" name='comps[]' type="checkbox" /> US Territories </label></li>
+			  </ul>
+			 </div>
+			</div>
 			<div class="divTableCell">
 	    		   <ul>
 			     <li>
@@ -224,8 +245,8 @@
 			     </li>   
 			   </ul>	   
 			</div>
-		</div>
-		</div>
+		  </div>	  
+	  </div>
 	</div>
             <a class='btn btn-primary' id='search' href='#'>
               <i class='glyphicon glyphicon-search'></i>
@@ -271,7 +292,7 @@
           var myMap = new MapsLib({
             fusionTableId:      "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
             googleApiKey:       "AIzaSyCA7a7D3tJvGQ_kIjyA294CqNy_9fWUor4",
-            locationColumn:     "Lat/Long",
+            locationColumn:     "Coordinates",
             map_center:         [47.441092, -99.711914],
             locationScope:      ""
           });

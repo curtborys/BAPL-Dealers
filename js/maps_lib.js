@@ -13,9 +13,11 @@
 
 	// EDIT to add more if you have additional polygon layers
     	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
-        this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
-	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //US Expansion
-          
+        this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Territory Boundaries
+	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //US Expansion     
+	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Canadaian Competitors   
+	this.polygon5FTID = options.polygon5FTID || "14hVdYA7mN4qmIr08XXd7ZgfUhwLMCvUB4PYU_NuJ", //US Competitors
+		
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
         this.googleApiKey = options.googleApiKey || "",
@@ -23,7 +25,7 @@
         // name of the location column in your Fusion Table.
         // NOTE: if your location column name has spaces in it, surround it with single quotes
         // example: locationColumn:     "'my location'",
-        this.locationColumn = options.locationColumn || "Lat/Long";
+        this.locationColumn = options.locationColumn || "Coordinates";
         
         // appends to all address searches if not present
         this.locationScope = options.locationScope || "";
@@ -94,6 +96,26 @@
         styleId: 4,
         templateId: 6
         });     
+
+	self.polygon4 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: false,
+        query: {
+        from: self.polygon4FTID,
+        select: "Coordinates"
+        },
+        styleId: 2,
+        templateId: 2
+        }); 
+	    
+	self.polygon5 = new google.maps.FusionTablesLayer({
+        suppressInfoWindows: false,
+        query: {
+        from: self.polygon5FTID,
+        select: "Coordinates"
+        },
+        styleId: 2,
+        templateId: 2
+        }); 	    
 	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
@@ -107,9 +129,12 @@
         $("#result_box").hide();
 
         
-        //-----custom initializers-----
-        $("#rbPolygonOff").attr("checked", "checked");
-	$("#rbPolygon1Off").attr("checked", "checked");    
+        //-----custom initializers-----    
+	$("#cbPolygon1").attr("checked", false);
+	$("#cbPolygon2").attr("checked", false);	
+	$("#rbPolygon1Off").attr("checked", "checked");
+	$("#cbPolygon4").attr("checked", false);
+	$("#cbPolygon5").attr("checked", false);	    
         //-----end of custom initializers-----
 
         //run the default search when page loads
@@ -222,12 +247,17 @@
     if ( $("#cbType17").is(':checked')) searchType += "17,";
     if ( $("#cbType18").is(':checked')) searchType += "18,";
     if ( $("#cbType19").is(':checked')) searchType += "19,";
+    if ( $("#cbType20").is(':checked')) searchType += "20,";	    
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";
     
     var type_column = "'SearchType3'";
     var searchType = type_column + " IN (-1,";
-    if ( $("#cbType20").is(':checked')) searchType += "1,";
-    if ( $("#cbType21").is(':checked')) searchType += "2,";
+    if ( $("#cbType100").is(':checked')) searchType += "1,"; 
+    else if (!$("#cbType100").is(':checked'))
+	$(":checkbox[name='canada[]']").attr("checked", false);
+    if ( $("#cbType101").is(':checked')) searchType += "2,";
+    else if (!$("#cbType101").is(':checked'))
+	$(":checkbox[name='us[]']").attr("checked", false);   
     self.whereClause += " AND " + searchType.slice(0, searchType.length - 1) + ")";        
         //-----end of custom filters-----
 
@@ -275,8 +305,8 @@
     MapsLib.prototype.drawSearchRadiusCircle = function (point) {
         var self = this;
         var circleOptions = {
-            strokeColor: "#4b58a6",
-            strokeOpacity: 0.3,
+            strokeColor: "#000000",
+            strokeOpacity: 0.5,
             strokeWeight: 1,
             fillColor: "#4b58a6",
             fillOpacity: 0.05,
@@ -394,19 +424,26 @@
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
-	if ($("#rbPolygon1").is(':checked'))
-    	   self.polygon1.setMap(self.map),
-	   self.polygon2.setMap(null); 
-    	else if ($("#rbPolygon2").is(':checked'))
-      	   self.polygon2.setMap(self.map),
-	   self.polygon1.setMap(null); 
-    	else if ($("#rbPolygonOff").is(':checked'))
-      	   self.polygon1.setMap(null),
-       	   self.polygon2.setMap(null);
+	if ($("#cbPolygon1").is(':checked'))
+	   self.polygon1.setMap(self.map);
+	else if (!$("#cbPolygon1").is(':checked'))
+       	   self.polygon1.setMap(null);
+    	if ($("#cbPolygon2").is(':checked'))
+	   self.polygon2.setMap(self.map);
+	else if (!$("#cbPolygon2").is(':checked'))
+           self.polygon2.setMap(null);	    
 	if ($("#rbPolygon3").is(':checked'))
     	   self.polygon3.setMap(self.map);
 	else if ($("#rbPolygon1Off").is(':checked'))
-       	   self.polygon3.setMap(null);    
+       	   self.polygon3.setMap(null);
+	if ($("#cbPolygon4").is(':checked'))
+    	   self.polygon4.setMap(self.map);
+	else if (!$("#cbPolygon4").is(':checked'))
+       	   self.polygon4.setMap(null);
+	if ($("#cbPolygon5").is(':checked'))
+    	   self.polygon5.setMap(self.map);
+	else if (!$("#cbPolygon5").is(':checked'))
+       	   self.polygon5.setMap(null);	    
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
