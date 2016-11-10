@@ -439,7 +439,11 @@
 	if ($("#cbPolygon4").is(':checked'))
     	   self.polygon4.setMap(self.map);
 	else if (!$("#cbPolygon4").is(':checked'))
-       	   self.polygon4.setMap(null);	    
+       	   self.polygon4.setMap(null);
+	if ($("#cbPolygon5").is(':checked'))
+    	   self.polygon5.setMap(self.map);
+	else if (!$("#cbPolygon5").is(':checked'))
+       	   self.polygon5.setMap(null);	    
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
