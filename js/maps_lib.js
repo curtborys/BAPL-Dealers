@@ -305,8 +305,8 @@
     MapsLib.prototype.drawSearchRadiusCircle = function (point) {
         var self = this;
         var circleOptions = {
-            strokeColor: "#4b58a6",
-            strokeOpacity: 0.3,
+            strokeColor: "#000000",
+            strokeOpacity: 0.5,
             strokeWeight: 1,
             fillColor: "#4b58a6",
             fillOpacity: 0.05,
