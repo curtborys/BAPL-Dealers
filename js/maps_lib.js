@@ -13,9 +13,10 @@
 
 	// EDIT to add more if you have additional polygon layers
     	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
-        this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Region Boundaries
+        this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Territory Boundaries
 	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //US Expansion     
-	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Competitors   
+	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Canadaian Competitors   
+	this.polygon5FTID = options.polygon5FTID || "14hVdYA7mN4qmIr08XXd7ZgfUhwLMCvUB4PYU_NuJ", //US Competitors
 		
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
