@@ -15,8 +15,7 @@
     	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
         this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Territory Boundaries
 	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //BAPL Expansion     
-	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Canadaian Competitors   
-	this.polygon5FTID = options.polygon5FTID || "14hVdYA7mN4qmIr08XXd7ZgfUhwLMCvUB4PYU_NuJ", //US Competitors
+	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Competitors   
 		
         // Found at https://console.developers.google.com/
         // Important! this key is for demonstration purposes. please register your own.
@@ -106,16 +105,7 @@
         styleId: 2,
         templateId: 2
         }); 
-	    
-	self.polygon5 = new google.maps.FusionTablesLayer({
-        suppressInfoWindows: false,
-        query: {
-        from: self.polygon5FTID,
-        select: "Coordinates"
-        },
-        styleId: 2,
-        templateId: 2
-        }); 	    
+	    	    
 	    
         //reset filters
         $("#search_address").val(self.convertToPlainString($.address.parameter('address')));
@@ -133,8 +123,7 @@
 	$("#cbPolygon1").attr("checked", false);
 	$("#cbPolygon2").attr("checked", false);
 	$("#cbPolygon3").attr("checked", false);	    
-	$("#cbPolygon4").attr("checked", false);
-	$("#cbPolygon5").attr("checked", false);	    
+	$("#cbPolygon4").attr("checked", false);	    
         //-----end of custom initializers-----
 
         //run the default search when page loads
@@ -440,10 +429,6 @@
     	   self.polygon4.setMap(self.map);
 	else if (!$("#cbPolygon4").is(':checked'))
        	   self.polygon4.setMap(null);
-	if ($("#cbPolygon5").is(':checked'))
-    	   self.polygon5.setMap(self.map);
-	else if (!$("#cbPolygon5").is(':checked'))
-       	   self.polygon5.setMap(null);	    
         if (self.addrMarker && self.addrMarker.getMap) 
             self.addrMarker.setMap(null);
         if (self.searchRadiusCircle && self.searchRadiusCircle.getMap) 
