@@ -131,8 +131,8 @@
         
         //-----custom initializers-----    
 	$("#cbPolygon1").attr("checked", false);
-	$("#cbPolygon2").attr("checked", false);	
-	$("#rbPolygon1Off").attr("checked", "checked");
+	$("#cbPolygon2").attr("checked", false);
+	$("#cbPolygon3").attr("checked", false);	    
 	$("#cbPolygon4").attr("checked", false);
 	$("#cbPolygon5").attr("checked", false);	    
         //-----end of custom initializers-----
@@ -432,9 +432,9 @@
 	   self.polygon2.setMap(self.map);
 	else if (!$("#cbPolygon2").is(':checked'))
            self.polygon2.setMap(null);	    
-	if ($("#rbPolygon3").is(':checked'))
+	if ($("#cbPolygon3").is(':checked'))
     	   self.polygon3.setMap(self.map);
-	else if ($("#rbPolygon1Off").is(':checked'))
+	else if (!$("#cbPolygon3").is(':checked'))
        	   self.polygon3.setMap(null);
 	if ($("#cbPolygon4").is(':checked'))
     	   self.polygon4.setMap(self.map);
