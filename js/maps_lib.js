@@ -414,19 +414,19 @@
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
 	if ($("#cbPolygon1").is(':checked'))
-	   self.polygon1.setMap(self.map.polygon1FTID);
+	   self.polygon1.setMap(self.map);
 	else if (!$("#cbPolygon1").is(':checked'))
        	   self.polygon1.setMap(null);
     	if ($("#cbPolygon2").is(':checked'))
-	   self.polygon2.setMap(self.map.polygon2FTID);
+	   self.polygon2.setMap(self.map);
 	else if (!$("#cbPolygon2").is(':checked'))
            self.polygon2.setMap(null);	    
 	if ($("#cbPolygon3").is(':checked'))
-    	   self.polygon3.setMap(self.map.polygon3FTID);
+    	   self.polygon3.setMap(self.map);
 	else if (!$("#cbPolygon3").is(':checked'))
        	   self.polygon3.setMap(null);
 	if ($("#cbPolygon4").is(':checked'))
-    	   self.polygon4.setMap(self.map.polygon4FTID);
+    	   self.polygon4.setMap(self.map);
 	else if (!$("#cbPolygon4").is(':checked'))
        	   self.polygon4.setMap(null);
         if (self.addrMarker && self.addrMarker.getMap) 
