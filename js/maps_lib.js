@@ -9,7 +9,7 @@
         this.searchRadius = options.searchRadius || 805; //in meters ~ 1/2 mile
 
         // the encrypted Table ID of your Fusion Table (found under File => About)
-        this.fusionTableId = options.fusionTableId || "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
+        this.fusionTableId = options.fusionTableId || "1E1IzvEtME0DPMHhisjhppmrO-vBb5MVpAwFpyCkv",
 
 	// EDIT to add more if you have additional polygon layers
        	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries 
