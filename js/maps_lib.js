@@ -409,20 +409,24 @@
     };
 	
 	// EDIT if adding more than polygon1
-    MapsLib.prototype.clearSearch = function () {
+  MapsLib.prototype.clearSearch = function () {
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
-	if (!$("#cbPolygon1").is(':checked'))
+	if ($("#cbPolygon1").is(':checked'))
+	   self.polygon1.setMap(self.map.polygon1FTID);
+	else if (!$("#cbPolygon1").is(':checked'))
        	   self.polygon1.setMap(null);
-	if (!$("#cbPolygon2").is(':checked'))
+    	if ($("#cbPolygon2").is(':checked'))
+	   self.polygon2.setMap(self.map.polygon2FTID);
+	else if (!$("#cbPolygon2").is(':checked'))
            self.polygon2.setMap(null);	    
 	if ($("#cbPolygon3").is(':checked'))
-    	   self.polygon3.setMap(self.map);
+    	   self.polygon3.setMap(self.map.polygon3FTID);
 	else if (!$("#cbPolygon3").is(':checked'))
        	   self.polygon3.setMap(null);
 	if ($("#cbPolygon4").is(':checked'))
-    	   self.polygon4.setMap(self.map);
+    	   self.polygon4.setMap(self.map.polygon4FTID);
 	else if (!$("#cbPolygon4").is(':checked'))
        	   self.polygon4.setMap(null);
         if (self.addrMarker && self.addrMarker.getMap) 
