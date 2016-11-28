@@ -413,13 +413,9 @@
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
-	if ($("#cbPolygon1").is(':checked'))
-	   self.polygon1.setMap(self.map);
-	else if (!$("#cbPolygon1").is(':checked'))
+	if (!$("#cbPolygon1").is(':checked'))
        	   self.polygon1.setMap(null);
-    	if ($("#cbPolygon2").is(':checked'))
-	   self.polygon2.setMap(self.map);
-	else if (!$("#cbPolygon2").is(':checked'))
+	if (!$("#cbPolygon2").is(':checked'))
            self.polygon2.setMap(null);	    
 	if ($("#cbPolygon3").is(':checked'))
     	   self.polygon3.setMap(self.map);
