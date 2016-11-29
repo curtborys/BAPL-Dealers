@@ -214,15 +214,15 @@
 			<div class="divTableCell">
 			 <div class="clear">
 			  <ul class="inputs-list unstyled">
-				<li><label class='checkbox inline'> <input id="cbPolygon1" name='types2' type="checkbox" /> Canadian Territories </label></li>
-				<li><label class='checkbox inline'> <input id="cbPolygon2" name='types2' type="checkbox" /> US Territories </label></li>
+				<li><label class='checkbox inline'> <input id="cbPolygon1" name='comps[]' type="checkbox" /> Canadian Territories </label></li>
+				<li><label class='checkbox inline'> <input id="cbPolygon2" name='comps[]' type="checkbox" /> US Territories </label></li>
 			  </ul>
 			 </div>
 			</div>
 			<div class="divTableCell">
 	    		   <ul>
 			     <li>
-              			<label class="checkbox inline"> <input id="cbPolygon3" name="types3" type="checkbox" />Prospect Dealers</label>
+              			<label class="checkbox inline"> <input id="cbPolygon3" name="types1" type="checkbox" />Prospect Dealers</label>
             	 	     </li>
 			     <li>
 				 <label class='checkbox inline'> <input type='checkbox' name='comps[]' id='cbPolygon4' />Competing Dealers</label>
@@ -252,7 +252,7 @@
           </noscript>
           <div id='map_canvas'></div>
           <p class='pull-right'>
-          BAPL Dealers
+          LEGEND: <img src="https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=|00FF00"> John Deere  |  <img src="https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=|6699FF">  New Holland  |  <img src="https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=|FF0000">  CASE  |  <img src="https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=|FFFF00">  AGCO  |  <img src="https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=|9933FF">  Non-Main Line
         </p>
         </div>
       </div>
@@ -274,7 +274,7 @@
         
         $(function() {
           var myMap = new MapsLib({
-            fusionTableId:      "1E1IzvEtME0DPMHhisjhppmrO-vBb5MVpAwFpyCkv",
+            fusionTableId:      "1khnYe_-YlyR-MZ5tMUeE7TNRxHDiqJWxyG5vLhyb",
             googleApiKey:       "AIzaSyCA7a7D3tJvGQ_kIjyA294CqNy_9fWUor4",
             locationColumn:     "Coordinates",
             map_center:         [47.441092, -99.711914],
