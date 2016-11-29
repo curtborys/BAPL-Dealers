@@ -9,12 +9,12 @@
         this.searchRadius = options.searchRadius || 805; //in meters ~ 1/2 mile
 
         // the encrypted Table ID of your Fusion Table (found under File => About)
-        this.fusionTableId = options.fusionTableId || "",
+        this.fusionTableId = options.fusionTableId || "1E1IzvEtME0DPMHhisjhppmrO-vBb5MVpAwFpyCkv",
 
 	// EDIT to add more if you have additional polygon layers
-    	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries    
+       	this.polygon1FTID = options.polygon1FTID || "1LjrrpEWKluFJm7r3H2hF0LhQw0Lq7Pd0tsWogJp6", //Canadian Territory Boundaries 
         this.polygon2FTID = options.polygon2FTID || "1gP27ZuU4u4DYXo2EEIHw_kQZg7rNAP9Rrk8EhgeI", //US Territory Boundaries
-	this.polygon3FTID = options.polygon3FTID || "1BEt2ZpTNlTyyvqJqMDiUB2o4HXBnfPxE4kKC7oee", //BAPL Expansion     
+	this.polygon3FTID = options.polygon3FTID || "1oEcm5sO9X_Ptl0VbijeNL1pGkvcUzp3pfcNSE3X1", //BAPL Expansion     
 	this.polygon4FTID = options.polygon4FTID || "1dYjvnVgm2bU9Y_0l94jxxBVvEcBzBRewljRD29nG", //Competitors   
 		
         // Found at https://console.developers.google.com/
@@ -90,10 +90,10 @@
         suppressInfoWindows: false,
         query: {
         from: self.polygon3FTID,
-        select: "Latitude"
+        select: "Coordinates"
         },
-        styleId: 4,
-        templateId: 6
+        styleId: 2,
+        templateId: 2
         });     
 
 	self.polygon4 = new google.maps.FusionTablesLayer({
@@ -409,7 +409,7 @@
     };
 	
 	// EDIT if adding more than polygon1
-    MapsLib.prototype.clearSearch = function () {
+  MapsLib.prototype.clearSearch = function () {
         var self = this;
         if (self.searchrecords && self.searchrecords.getMap) 
            self.searchrecords.setMap(null);
